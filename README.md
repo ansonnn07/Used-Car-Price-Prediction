@@ -14,7 +14,7 @@
 and they were scraped from the Craigslist platform, which has a very large collection of listings of 
 used vehicles that are being sold by people in United States.
 - In this project, machine learning is used to predict used car prices based on various attributes such as the year of the vehicle, the location (latitude and longitude) of the listing and so on.
-- The model used in the end is worse than the original Random Forest model built in the notebook ($R_2$ = 86.0% instead of 90.5%). This is due to the extremely large size of the Random Forest model, therefore some parameters were changed to reduce the size of the model, you can refer to the `modelling.ipynb` notebook to see the methods used to reduce and compress the model size under the **Save the model** section.
+- The model used in the end is worse than the original Random Forest model built in the notebook (<img src="https://latex.codecogs.com/gif.latex?R_2" title="R_2" /> = 86.0% instead of 90.5%). This is due to the extremely large size of the Random Forest model, therefore some parameters were changed to reduce the size of the model, you can refer to the `modelling.ipynb` notebook to see the methods used to reduce and compress the model size under the **Save the model** section.
 
 ## Web Application
 The Web App is accessible [here](https://share.streamlit.io/ansonnn07/used-car-price-prediction/main/app.py) which you can directly see all the visualizations made.
