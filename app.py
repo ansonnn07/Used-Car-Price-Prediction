@@ -16,7 +16,7 @@ register_matplotlib_converters()
 pd.options.plotting.backend = "plotly"
 
 st.set_page_config(
-    page_title="Used Car Price",
+    page_title="Used Car Price Prediction",
     # page_icon="FB",
     # layout="wide",
     initial_sidebar_state="expanded",
@@ -25,19 +25,20 @@ st.set_page_config(
 # Add title, descriptions and image
 st.title('Used Car Price Prediction')
 st.markdown('''
-- !!!!!! TO WRITE
+- The data is obtained from [Kaggle](https://www.kaggle.com/austinreese/craigslist-carstrucks-data),
+and they were scraped from the Craigslist platform, which has a very large collection of listings of 
+used vehicles that are being sold by people in United States.
+- In this web app, machine learning is used to predict used car prices based on various
+attributes such as the year of the vehicle, the location (latitude and longitude) of the listing and so on.
 
 
 - App built by [Anson](https://www.linkedin.com/in/ansonnn07/)
-- Built with `Python`, using `streamlit`, `pandas`, `numpy`, `plotly`
+- Built with `Python`, using `streamlit`, `sklearn`, `pandas`, `numpy`, `plotly`
 
 **Links**: [GitHub](https://github.com/ansonnn07/Used-Car-Price-Prediction), 
 [LinkedIn](https://www.linkedin.com/in/ansonnn07/),
 [Kaggle](https://www.kaggle.com/ansonnn/code)
 ''')
-
-st.markdown("""
-""")
 
 st.markdown('---')
 
@@ -59,7 +60,7 @@ cats = ['manufacturer', 'condition', 'cylinders', 'fuel',
 nums = ['price', 'year', 'odometer', 'lat', 'long']
 form_value_dict = {}
 
-st.sidebar.header('Selections')
+st.sidebar.header('**Attributes**')
 with st.sidebar.form("selection_form"):
     for feature, feat_range in col_ranges.items():
         if feature == 'price':
@@ -97,7 +98,7 @@ with st.sidebar.form("selection_form"):
 
     submitted = st.form_submit_button("Predict!")
 
-st.header("Explanations of the attributes of the used car")
+st.header("**Explanations of the attributes of the used car**")
 st.markdown("""
 - **Year**: Year of the vehicle
 - **Odometer**: Miles traveled by the vehicle
@@ -120,7 +121,8 @@ st.markdown("---")
 if submitted:
     selected_values = pd.DataFrame.from_dict(form_value_dict)
     pred = model.predict(selected_values).flatten()[0]
-    st.success(f"""The predicted price is ${pred:,.2f} !""")
+    st.header(f"**The predicted price is** ...")
+    st.success(f"**${pred:,.2f}**")
 else:
     st.info("""Press the 'Predict!' button after you have selected the values at the sidebar 
     to predict the used car price!""")
