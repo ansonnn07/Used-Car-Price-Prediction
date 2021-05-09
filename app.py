@@ -1,19 +1,7 @@
 import json
-from collections import deque
-
-import cufflinks as cf
 import joblib
-import numpy as np
 import pandas as pd
-import plotly.graph_objs as go
 import streamlit as st
-from pandas.plotting import register_matplotlib_converters
-
-register_matplotlib_converters()
-# sns.set(style='whitegrid', palette='muted', font_scale=1.5)
-# plt.rcParams['figure.figsize'] = 15, 10
-
-pd.options.plotting.backend = "plotly"
 
 st.set_page_config(
     page_title="Used Car Price Prediction",
@@ -33,7 +21,7 @@ attributes such as the year of the vehicle, the location (latitude and longitude
 
 
 - App built by [Anson](https://www.linkedin.com/in/ansonnn07/)
-- Built with `Python`, using `streamlit`, `sklearn`, `pandas`, `numpy`, `plotly`
+- Built with `Python`, using `streamlit`, `sklearn`, `pandas`, `numpy`
 
 **Links**: [GitHub](https://github.com/ansonnn07/Used-Car-Price-Prediction), 
 [LinkedIn](https://www.linkedin.com/in/ansonnn07/),
