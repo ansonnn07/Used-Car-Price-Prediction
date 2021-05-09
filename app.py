@@ -2,6 +2,7 @@ import json
 import joblib
 import pandas as pd
 import streamlit as st
+import sklearn
 
 st.set_page_config(
     page_title="Used Car Price Prediction",
@@ -40,7 +41,13 @@ def get_label(feature):
     return label
 
 
-model = joblib.load('model_pipe.joblib')
+@st.cache(show_spinner=False, allow_output_mutation=True)
+def load_model():
+    model = joblib.load('model_pipe.joblib')
+    return model
+
+
+model = load_model()
 
 col_ranges = json.load(open('data//col_range.json', 'r'))
 cats = ['manufacturer', 'condition', 'cylinders', 'fuel',
