@@ -82,7 +82,7 @@ with st.sidebar.form("selection_form"):
             default_idx = 0
             selected = st.selectbox(f'{label}', options=current_range,
                                     index=default_idx)
-            form_value_dict[feature] = [selected]
+            form_value_dict[feature] = [selected.lower()]
 
     submitted = st.form_submit_button("Predict!")
 
