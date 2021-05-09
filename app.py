@@ -48,6 +48,25 @@ cats = ['manufacturer', 'condition', 'cylinders', 'fuel',
 nums = ['price', 'year', 'odometer', 'lat', 'long']
 form_value_dict = {}
 
+st.header("**Explanations of the attributes of the used car**")
+st.markdown("""
+- **Year**: Year of the vehicle
+- **Odometer**: Miles traveled by the vehicle
+- **Lat**: Latitude of the listing
+- **Long**: Longitude of the listing
+- **Manufacturer**: Manufacturer of the vehicle
+- **Condition**: Condition of the vehicle
+- **Cylinders**: Number of cylinders
+- **Fuel**: Fuel type
+- **Title status**: Title status of the vehicle
+- **Transmission**: Transmission type of the vehicle
+- **Drive**: Type of wheel drive
+- **Type**: Generic type of the vehicle
+- **Paint color**: Color of the vehicle
+""")
+
+st.markdown("---")
+
 st.sidebar.header('**Attributes**')
 with st.sidebar.form("selection_form"):
     for feature, feat_range in col_ranges.items():
@@ -85,26 +104,6 @@ with st.sidebar.form("selection_form"):
             form_value_dict[feature] = [selected.lower()]
 
     submitted = st.form_submit_button("Predict!")
-
-st.header("**Explanations of the attributes of the used car**")
-st.markdown("""
-- **Year**: Year of the vehicle
-- **Odometer**: Miles traveled by the vehicle
-- **Lat**: Latitude of the listing
-- **Long**: Longitude of the listing
-- **Manufacturer**: Manufacturer of the vehicle
-- **Condition**: Condition of the vehicle
-- **Cylinders**: Number of cylinders
-- **Fuel**: Fuel type
-- **Title status**: Title status of the vehicle
-- **Transmission**: Transmission type of the vehicle
-- **Drive**: Type of wheel drive
-- **Type**: Generic type of the vehicle
-- **Paint color**: Color of the vehicle
-""")
-
-st.markdown("---")
-
 
 if submitted:
     selected_values = pd.DataFrame.from_dict(form_value_dict)
