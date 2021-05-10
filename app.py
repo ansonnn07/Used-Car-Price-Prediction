@@ -3,6 +3,7 @@ import joblib
 import pandas as pd
 import streamlit as st
 import sklearn
+from PIL import Image
 
 st.set_page_config(
     page_title="Used Car Price Prediction",
@@ -30,6 +31,8 @@ attributes such as the year of the vehicle, the location (latitude and longitude
 ''')
 
 st.markdown('---')
+
+st.image(Image.open('bmw-x4.jpg'))
 
 
 def get_label(feature):
